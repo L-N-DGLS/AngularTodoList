@@ -1,7 +1,7 @@
 <div class="controls-section">
   <div class="stats">
     @if (taskService.tasks$ | async; as tasks) {
-      <span>Tasks left: <strong>{{ tasks.length }}</strong></span>
+      <span>Tasks left: <strong>{{ taskService.remainingCount }}</strong></span>
     }
   </div>
   

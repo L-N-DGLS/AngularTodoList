@@ -1,10 +1,12 @@
 @for (task of taskService.tasks$ | async; track task.id) {
   <div class="task-item" [class.completed]="task.completed">
-    <input type="checkbox" 
-           [checked]="task.completed"
-           (change)="taskService.toggleTask(task.id)">
+    <button (click)="taskService.toggleTask(task.id)">
+      <i [class]="task.completed ? 'bi bi-check-circle-fill' : 'bi bi-circle'"></i>
+    </button>
     <span class="task-title">{{ task.title }}</span>
-    <button (click)="taskService.deleteTask(task.id)">Delete</button>
+    <button (click)="taskService.deleteTask(task.id)">
+      <i class="bi bi-trash"></i>
+    </button>
   </div>
 } @empty {
   <div class="empty-state">No tasks yet!</div>
