@@ -1,0 +1,11 @@
+@for (task of taskService.tasks$ | async; track task.id) {
+  <div class="task-item" [class.completed]="task.completed">
+    <input type="checkbox" 
+           [checked]="task.completed"
+           (change)="taskService.toggleTask(task.id)">
+    <span class="task-title">{{ task.title }}</span>
+    <button (click)="taskService.deleteTask(task.id)">Delete</button>
+  </div>
+} @empty {
+  <div class="empty-state">No tasks yet!</div>
+}

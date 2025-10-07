@@ -1,0 +1,12 @@
+<div class="controls-section">
+  <div class="stats">
+    @if (taskService.tasks$ | async; as tasks) {
+      <span>Tasks left: <strong>{{ tasks.length }}</strong></span>
+    }
+  </div>
+  
+  <div class="actions">
+    <button (click)="taskService.deleteCompleted()">Clear Completed</button>
+    <button (click)="taskService.clearAll()">Clear All</button>
+  </div>
+</div>

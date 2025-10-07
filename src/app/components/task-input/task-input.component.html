@@ -1,0 +1,6 @@
+<div class="formcontrol">
+  <button (click)="taskService.toggleAll()">
+    <i [class]="taskService.remainingCount === 0 ? 'bi-arrow-down-circle' : 'bi bi-circle'"></i>
+  </button>
+  <input #input placeholder="Add a task..." (keyup.enter)="taskService.addTask(input.value); input.value=''">
+</div>
